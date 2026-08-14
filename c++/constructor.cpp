@@ -15,7 +15,7 @@ class Maths{
 	   }
 	   //copy constructor
 	   Maths(const Maths &m2){
-	   	m2.x=100;
+	   	 
 	   	 x=m2.x;
 	   	 y=m2.y;
 	   }
