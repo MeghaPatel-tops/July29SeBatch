@@ -9,7 +9,7 @@ class Test{
 		}
 		void testMethod();
 };
-void Test ::testMethod(){
+void Test::testMethod(){
 	std::cout<<"\n Method define outside the class";
 }
 main(){
