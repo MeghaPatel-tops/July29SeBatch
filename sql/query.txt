@@ -1,0 +1,17 @@
+CREATE DATABASE july29se;
+
+use july29se;
+
+CREATE TABLE student(sid int PRIMARY KEY AUTO_INCREMENT,name varchar(30),email varchar(50),contact varchar(30),zipcode varchar(10));
+
+DESC student;
+
+ALTER TABLE student ADD COLUMN address varchar(100);
+
+ALTER TABLE student add COLUMN enrollid varchar(20) AFTER  email;
+
+ALTER TABLE student CHANGE enrollid enroll int;
+
+ALTER TABLE student DROP COLUMN enroll;
+
+DROP TABLE student;

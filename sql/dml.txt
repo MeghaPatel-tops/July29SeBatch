@@ -1,0 +1,57 @@
+ INSERT INTO student(name,email,contact,zipcode)VALUES("vidhyasagar","v@test.com",9090909090,"395007");
+
+ UPDATE student SET contact="8080808080" where name="vidhyasagar";
+
+ DELETE FROM student where name="vidhyasagar";
+
+
+ DQL=>select
+ SELECT * FROM student;
+
+ The SQL WHERE Clause
+The WHERE clause is used to filter records.
+
+The WHERE clause is used to extract only those records that fulfill a specific condition.
+
+ SELECT * FROM products where pid=2;
+
+ ===================
+ The SQL ORDER BY
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the result-set in ascending order (ASC) by default.
+ SELECT * FROM `users` ORDER BY username ASC;
+
+========================================
+The WHERE clause can contain one or many AND operators.
+
+The AND operator is used to filter records based on more than one condition.
+SELECT * FROM `products` WHERE catid=2 AND price>=1000
+==============================
+The SQL OR Operator
+The WHERE clause can contain one or more OR operators.
+
+The OR operator is used to filter records based on more than one condition.
+
+SELECT * FROM `products` WHERE catid=2 OR price>=1000
+==================
+
+The NOT Operator
+The NOT operator is used in the WHERE clause to return all records that DO NOT match the specified criteria. It reverses the result of a condition from true to false and vice-versa.
+SELECT * FROM `products` WHERE NOT pid  = 2;
+
+=======================================
+MIN() - returns the smallest value of a column
+MAX() - returns the largest value of a column
+COUNT() - returns the number of rows in a set
+SUM() - returns the sum of a numerical column
+AVG() - returns the average value of a numerical column
+
+SELECT min(price) as minimumPrice FROM `products` ;
+
+SELECT max(price) as maxmumPrice FROM `products`;
+
+SELECT sum(price) as sumPrice FROM `products`;
+
+SELECT count(pid) as totalProduct FROM `products`;
+SELECT avg(pid) as avgPrice FROM `products`;

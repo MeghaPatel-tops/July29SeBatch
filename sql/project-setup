@@ -1,0 +1,86 @@
+CREATE TABLE category(cid int PRIMARY KEY AUTO_INCREMENT,catname varchar(20));
+
+
+CREATE TABLE products(pid int PRIMARY KEY AUTO_INCREMENT,pname varchar(30),price float, description varchar(250),catid int, FOREIGN KEY(catid) REFERENCES category(cid));
+
+
+CREATE TABLE users(uid int PRIMARY KEY AUTO_INCREMENT, username varchar(30),email varchar(50),contact varchar(20),pwd varchar(10));
+
+CREATE TABLE cart(cartid int PRIMARY KEY AUTO_INCREMENT,pid int ,uid int, dateof date,FOREIGN KEY(pid)REFERENCES products(pid), FOREIGN KEY(uid) REFERENCES users(uid))
+
+
+CREATE TABLE `orders` (
+  `orderid` int(11) NOT NULL,
+  
+  `cartid` int(11) DEFAULT NULL,
+  `amount` float DEFAULT NULL,
+  `dateof` date DEFAULT NULL
+) 
+
+
+-- 1. CATEGORY
+INSERT INTO category (catname) VALUES
+('Electronics'),
+('Clothing'),
+('Shoes'),
+('Books'),
+('Furniture');
+
+
+-- 2. USERS
+INSERT INTO users (username, email, contact, pwd) VALUES
+('megha', 'megha@gmail.com', '9876543210', 'megha123'),
+('rahul', 'rahul@gmail.com', '9876543211', 'rahul123'),
+('priya', 'priya@gmail.com', '9876543212', 'priya123'),
+('amit', 'amit@gmail.com', '9876543213', 'amit123'),
+('neha', 'neha@gmail.com', '9876543214', 'neha123');
+
+
+-- 3. PRODUCTS
+INSERT INTO products (pname, price, description, catid) VALUES
+('Laptop', 55000, 'HP Laptop 15 inch', 1),
+('T-Shirt', 799, 'Cotton round neck T-Shirt', 2),
+('Running Shoes', 2499, 'Comfortable running shoes', 3),
+('Java Book', 650, 'Complete Java Programming Book', 4),
+('Office Chair', 4500, 'Comfortable office chair', 5),
+('Mobile Phone', 25000, 'Android smartphone', 1),
+('Jeans', 1800, 'Blue denim jeans', 2);
+
+
+-- 4. CART
+INSERT INTO cart (pid, uid, dateof) VALUES
+(1, 1, '2026-09-01'),
+(2, 2, '2026-09-01'),
+(3, 3, '2026-09-02'),
+(4, 1, '2026-09-02'),
+(5, 4, '2026-09-02');
+
+
+-- 5. ORDERS
+INSERT INTO orders (cartid, amount, dateof) VALUES
+(1, 55000, '2026-09-01'),
+(2, 799, '2026-09-01'),
+(3, 2499, '2026-09-02'),
+(4, 650, '2026-09-02'),
+(5, 4500, '2026-09-02');
+
+
+-- 6. PAYMENT
+INSERT INTO payment (orderid, transationid, modes) VALUES
+(1, 'TXN10001', 'UPI'),
+(2, 'TXN10002', 'Credit Card'),
+(3, 'TXN10003', 'Debit Card'),
+(4, 'TXN10004', 'Cash'),
+(5, 'TXN10005', 'UPI');
+
+
+-- 7. STUDENT
+INSERT INTO student (name, email, contact, zipcode) VALUES
+('Ravi Patel', 'ravi@gmail.com', '9876500001', '395001'),
+('Jay Shah', 'jay@gmail.com', '9876500002', '380001'),
+('Kiran Mehta', 'kiran@gmail.com', '9876500003', '390001'),
+('Pooja Desai', 'pooja@gmail.com', '9876500004', '395002'),
+('Nikhil Patel', 'nikhil@gmail.com', '9876500005', '380015');
+
+
+
