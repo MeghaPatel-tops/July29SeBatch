@@ -1,0 +1,12 @@
+CREATE ROLE 'viewer_role';
+
+GRANT SELECT
+ON july29se.*
+TO 'viewer_role';
+
+CREATE USER 'abc123'@'localhost' IDENTIFIED BY 'Abc@123';
+
+GRANT 'viewer_role'@'localhost' TO 'abc123'@'localhost';
+
+SET DEFAULT ROLE 'viewer_role'
+TO 'abc123'@'localhost';

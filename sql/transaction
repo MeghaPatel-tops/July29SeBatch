@@ -1,0 +1,75 @@
+START TRANSACTION;
+DELETE from users where uid=6;
+
+ROLLBACK;
+
+
+START TRANSACTION;
+DELETE from users where uid=6;
+
+COMMIT;
+
+
+START TRANSACTION;
+
+SAVEPOINT sp1;
+insert INTO users(username,email,contact,pwd)value('abc','abc@tst.com','99090909','a123');
+
+SAVEPOINT sp2;
+UPDATE users set contact=8080808080 where uid=3;
+
+SAVEPOINT sp3;
+UPDATE users set pwd='a909' where uid=4;
+
+
+ROLLBACK to sp3;
+
+COMMIT;
+
+
+
+
+CREATE TRIGGER trigger1 AFTER UPDATE ON products
+FOR EACH ROW
+INSERT INTO `tmp-tbl`(pid,whenchange)VALUES(old.pid,now());
+
+
+create proc
+
+
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE increseSalaryPRoduct()
+BEGIN
+DECLARE    ppid int ;
+DECLARE   pprice float;
+DECLARE isDone int  DEFAULT false;
+DECLARE  cur1 CURSOR FOR SELECT ppid,pprice from products;
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET isDone = true;
+
+
+open cur1;
+floop :LOOP
+
+FETCH cur1 into ppid,pprice;
+
+if isDone THEN
+   LEAVE floop;
+END if;
+
+UPDATE products set price = pprice+200 where pid=ppid;
+
+end LOOP floop;
+
+CLOSE cur1;
+END $$ 
+DELIMITER ;
+
+
+call increseSalaryPRoduct()
+
+
+

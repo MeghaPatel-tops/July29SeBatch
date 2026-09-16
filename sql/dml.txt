@@ -55,3 +55,86 @@ SELECT sum(price) as sumPrice FROM `products`;
 
 SELECT count(pid) as totalProduct FROM `products`;
 SELECT avg(pid) as avgPrice FROM `products`;
+
+=====================================
+The LIKE operator is used in a WHERE clause to search for a specified pattern within a column's text data.
+
+There are two wildcards often used in conjunction with the LIKE operator:
+
+A percent sign % - represents zero, one, or multiple characters
+A underscore sign _ - represents a single character
+The following SQL selects all customers that starts with the letter "a":
+SELECT * FROM `products` WHERE pname LIKE 'l%';
+
+SELECT * FROM `products` WHERE pname LIKE '%l%';
+
+============================================
+SELECT * FROM `products` WHERE catid in(1,2);
+SELECT * FROM `products` WHERE catid not in(1,2);
+
+The IN operator is used in the WHERE clause to check if a specified column's value matches any value within a provided list.
+
+The IN operator functions as a shorthand for multiple OR conditions, making queries shorter and more readable.
+
+============================
+The SQL BETWEEN Operator
+The BETWEEN operator is used in the WHERE clause to select values within a specified range.
+
+The range is inclusive - the beginning and end values of the range are included in the results.
+SELECT * FROM `products` WHERE price BETWEEN 2000 AND 5000;
+
+==================================
+The SQL JOIN Clause
+The JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+Here are the different types of JOINs in SQL:
+
+(INNER) JOIN: Returns only rows that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all rows from the left table, and only the matched rows from the right table
+RIGHT (OUTER) JOIN: Returns all rows from the right table, and only the matched rows from the left table
+FULL (OUTER) JOIN: Returns all rows when there is a match in either the left or right table
+SELECT * FROM `products` join category ON products.catid = category.cid
+
+SELECT * FROM `products` LEFT JOIN  category ON products.catid = category.cid;
+
+SELECT * FROM `products` RIGHT JOIN  category ON products.catid = category.cid;
+SELECT * FROM `products` FULL JOIN  category 
+
+=======================================
+The SQL GROUP BY Statement
+The GROUP BY statement is used to group rows that have the same values into summary rows, like "Find the number of customers in each country".
+
+The GROUP BY statement is almost always used in conjunction with aggregate functions, like COUNT(), MAX(), MIN(), SUM(), AVG(), to perform calculations on each group.
+SELECT cid,catname,count(pid) FROM products JOIN category on products.catid= category.cid GROUP BY catid;
+
+SELECT cid,catname,count(pid),sum(price) as ProductWiseTotal FROM products JOIN category on products.catid= category.cid GROUP BY catid;
+=====================================
+The SQL HAVING Clause
+The HAVING clause is used to filter the results of a GROUP BY query based on aggregate functions.
+
+Unlike the WHERE clause, which filters individual rows before grouping, the HAVING clause filters groups after the aggregation has been performed.
+
+SELECT cid,catname,count(pid),sum(price) as ProductWiseTotal FROM products JOIN category on products.catid= category.cid GROUP BY catid HAVING ProductWiseTotal > 5000;
+
+======================================================
+The SQL EXISTS Operator
+The EXISTS operator is used in a WHERE clause to check whether a subquery returns any rows.
+
+The EXISTS operator evaluates to TRUE if the subquery returns at least one row, and FALSE otherwise.
+SELECT * FROM orders where EXISTS(SELECT * FROM payment where orders.orderid=payment.orderid and status="success");
+
+
+=============================================
+CREATE view productCatView as (SELECT pid,pname,price,catid,catname from products join category on products.catid= category.cid)
+
+==============================================
+CREATE PROCEDURE getALLProducts()
+SELECT * from products join category on products.catid=category.cid
+
+call getALLProducts();
+====================================================
+CREATE PROCEDURE getProductById(id int)
+
+SELECT * from products join category on products.catid=category.cid WHERE pid=id
+
+CALL getProductById(4)
