@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::first-letter{
+            font-size: 3em;
+            color: red;
+        }
+        p::first-line{
+            color: green;
+        }
+        h1::after{
+            content: '★';
+        }
+          h1::before{
+            content: '★';
+        }
+        p::selection{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to app</h1>
+    <p>Lorem ipsum dolor sit amet consectetur <br>adipisicing elit. Iusto, nisi aut! Accusantium, neque odio, quisquam totam consequatur iste corporis nostrum cum quibusdam eum perspiciatis. Magnam dignissimos molestias dolor expedita excepturi.</p>
+</body>
+</html>

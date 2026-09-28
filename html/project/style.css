@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.main{
+    height: 700px;
+    width: 100%;
+     background:
+        linear-gradient(rgba(32, 16, 3, 0.7),
+                        rgba(32, 16, 3, 0.7)),
+       url(images/pexels-samerdaboul-1005427.jpg)
+      ;
+    
+    background-size: cover;
+  
+}
+nav{
+    padding: 10px 50px;
+    background-color: rgba(32, 16, 3, 0.5);
+      display: flex;
+      height: 80px;
+      justify-content: space-between;
+      align-items: center;
+}
+.logotext{
+    color: orange;
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+.nav-grop{
+     display: flex;
+     gap:20px;
+     align-items: center;
+     
+}
+.nav-item {
+    color: white;
+    font-weight: bolder;
+}
+.nav-item:hover,.active-link{
+     color: orange;
+}
+.nav-item button{
+     background-color: orange;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px ;
+     color: white;
+}

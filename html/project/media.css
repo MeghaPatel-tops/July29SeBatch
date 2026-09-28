@@ -1,0 +1,13 @@
+@media screen and (max-width:576px) {
+    nav{
+        padding: 50px 10px;
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        gap:30px
+    }
+    .nav-grop{
+        flex-direction: column;
+    }
+  
+}

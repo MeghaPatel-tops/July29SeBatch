@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+        }
+
+        nav {
+           
+            padding:5px;
+            background-color: #0f1111;
+            color: white;
+            display: grid;
+            grid-template-columns: 25% 40% 35%;
+            gap: 10px;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            gap:20px;
+            /* background-color: gray; */
+        }
+
+        .hoverdiv:hover {
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        .logodiv {
+            padding: 5px 10px;
+        }
+
+        .logodiv img {
+            height: 30px;
+            width: 100px;
+        }
+
+      
+
+        .nav-item {
+            
+            padding: 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+           
+        }
+        .nav-item span{
+             font-size: 15px;
+        }
+
+        .icon-div {
+            align-self: center;
+        }
+
+        .nav-span {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .moveright{
+            transform: translateX(20px);
+        } */
+        .form-control {
+            display: flex;
+            background-color: gray;
+        }
+
+        .form-control select {
+            padding: 10px 0px;
+            background-color: gainsboro;
+            text-align: center;
+        }
+
+        .form-control>button {
+            padding: 10px 15px;
+            background-color: orange;
+            border: none;
+        }
+
+        .form-control>select:focus,
+        .form-control>button:focus {
+            border: 5px solid orangered;
+            border-radius: 5px;
+        }
+
+        #txt1 {
+            border: none;
+            width: 400px;
+        }
+
+        #txt1:focus {
+            outline: none;
+        }
+
+        .form-control:has(#txt1:focus) {
+            border: 2px solid orangered;
+            border-radius: 5px;
+        }
+        .drop-down img{
+            height: 15px;
+            width: 40px;
+        }
+        .drop-down{
+            position: relative;
+            display: flex;
+            gap: 10px;
+        }
+        .drop-down:hover .drop-menu{
+            display: block;
+        }
+        .drop-menu{
+            position: absolute;
+            top: 30px;
+            background-color: white;
+            color: black;
+            box-shadow: 2px 2px 3px gray;
+            display: none;
+        }
+        .drop-item{
+            width: 100%;
+            padding: 10px 30px;
+            border-bottom: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+   
+        <nav>
+            <div class="nav-left">
+                <div class="logodiv hoverdiv">
+                    <img src="images/OIP-removebg-preview.png" alt="">
+                </div>
+               
+                <div class="nav-item hoverdiv">
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;Dilvery to ahemdabad</span>
+                    <span><i class="fa-solid fa-location-dot"></i><b>update location</b></span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div>
+                    <div class="form-control">
+                        <select name="" id="">
+                            <option value="">All</option>
+                            <option value="">Category</option>
+                            <option value="">Book</option>
+                            <option value="">Apps & Game</option>
+                        </select>
+                        <input type="text" name="" id="txt1" >
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-right">
+                 <div>
+                    <div class="drop-down hoverdiv">
+                     <img src="images/OIP (1).jpeg" alt="">
+                     <span>EN <i class="fa-solid fa-angle-down"></i></span>
+                         <div class="drop-menu">
+                            <div class="drop-item">
+                                <span>English</span>
+                            </div>
+                            <div class="drop-item">
+                                <span>hindi</span>
+                            </div>
+                             <div class="drop-item">
+                                <span>English</span>
+                            </div>
+                            <div class="drop-item">
+                                <span>hindi</span>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            <div>
+                <span>Dilvery to ahemdabad</span>
+              <span>  updatelocation</span>
+            </div>
+            <div>
+                <span>Dilvery to ahemdabad</span>
+              <span>  updatelocation</span>
+            </div>
+            <div>
+                cart
+            </div>
+            </div>
+        </nav>
+   
+</body>
+
+</html>

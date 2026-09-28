@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size: 4em;
+        }
+        .rowflex{
+             display: flex;
+             padding: 100px 20px;
+             border: 2px solid black;
+             gap:20px
+        }
+        .colflex{
+            height: 200px;
+            text-align: center;
+            width: 100%;
+            background-color: skyblue;
+            border-radius: 20px;
+            box-shadow: 3px 3px 5px blue;
+            transition: transform;
+            /* transition-delay: 1s; */
+            transition-duration: 0.3s;
+            transition-timing-function: linear;
+        }
+        .colflex:hover{
+            border: 2px solid red;
+            transform: rotate(5deg);
+           
+        }
+        .gridrow{
+                padding: 100px 50px;
+               display: grid;
+               grid-template-columns: repeat(4,1fr);
+               gap:20px;
+        }
+        .gridcol{
+            text-align: center;
+            height: 200px;
+             background-color: lightgreen;
+             border-radius: 20px;
+             
+        }
+
+         @media screen and (max-width:768px) {
+            h1{
+                font-size: 2em;
+            }
+            .rowflex{
+                flex-direction: column;
+            }
+              .gridrow{
+                grid-template-columns: 1fr 1fr;
+              }
+
+        }
+        @media screen and (max-width:576px) {
+            h1{
+                font-size: 1em;
+            }
+            .rowflex{
+                flex-direction: column;
+            }
+            .gridrow{
+                grid-template-columns: 1fr;
+              }
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Welcome to app</h1>
+
+    <div class="rowflex">
+        <div class="colflex" id="box-1">flexbox-1</div>
+        <div class="colflex" id="box-2">flexbox-2</div>
+        <div class="colflex" id="box-3">flexbox-3</div>
+        <div class="colflex" id="box-4">flexbox-4</div>
+    </div>
+    <div class="gridrow">
+        <div class="gridcol" id="gridcol-1">Grid-colo-1</div>
+        <div class="gridcol" id="gridcol-2">Grid-colo-2</div>
+        <div class="gridcol" id="gridcol-3">Grid-colo-3</div>
+        <div class="gridcol" id="gridcol-4">Grid-colo-4</div>
+        <div class="gridcol" id="gridcol-5">Grid-colo-5</div>
+        <div class="gridcol" id="gridcol-6">Grid-colo-6</div>
+        <div class="gridcol" id="gridcol-7">Grid-colo-7</div>
+        <div class="gridcol" id="gridcol-8">Grid-colo-8</div>
+    </div>
+</body>
+</html>
