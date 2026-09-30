@@ -1,4 +1,7 @@
 @media screen and (max-width:576px) {
+    .main{
+        height: auto;
+    }
     nav{
         padding: 50px 10px;
         flex-direction: column;
@@ -9,5 +12,19 @@
     .nav-grop{
         flex-direction: column;
     }
+.hero-text{
+   
+    height: auto;
+    padding: 50px 10px;
+   text-align: center;
+    
+   
+}
+.hero-text h1{
+     font-size: 2em;
+     
+   
+}
+
   
 }

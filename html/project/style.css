@@ -1,51 +1,190 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.main{
+
+.main {
+
     height: 700px;
     width: 100%;
-     background:
+    background:
         linear-gradient(rgba(32, 16, 3, 0.7),
-                        rgba(32, 16, 3, 0.7)),
-       url(images/pexels-samerdaboul-1005427.jpg)
-      ;
-    
+            rgba(32, 16, 3, 0.7)),
+        url(images/pexels-samerdaboul-1005427.jpg);
+
     background-size: cover;
-  
+
 }
-nav{
+
+nav {
+    z-index: 1;
+    width: 100%;
+    position: fixed;
     padding: 10px 50px;
     background-color: rgba(32, 16, 3, 0.5);
-      display: flex;
-      height: 80px;
-      justify-content: space-between;
-      align-items: center;
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+     animation: darkBackground linear;
+    animation-timeline: scroll(root);
 }
-.logotext{
+
+@keyframes darkBackground {
+
+    0% {
+        background-color: rgba(32, 16, 3, 0.5);
+       
+    }
+
+   
+    100% {
+        background-color: rgba(32, 16, 3);
+        
+    }
+
+}
+
+.logotext {
     color: orange;
     font-size: 2.5em;
     font-weight: bolder;
 }
-.nav-grop{
-     display: flex;
-     gap:20px;
-     align-items: center;
-     
+
+.nav-grop {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
 }
+
 .nav-item {
     color: white;
     font-weight: bolder;
 }
-.nav-item:hover,.active-link{
-     color: orange;
+
+.nav-item:hover,
+.active-link {
+    color: orange;
 }
-.nav-item button{
-     background-color: orange;
-     border: none;
-     padding: 10px 20px;
-     border-radius: 5px ;
-     color: white;
+
+.nav-item button {
+    background-color: orange;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
 }
+
+.hero-div {
+    height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-img img {
+    z-index: 1;
+    height: 400px;
+    width: 400px;
+    animation-name: coffeemgmove;
+    animation-duration: 10s;
+
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes coffeemgmove {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-text {
+    /* background-color: gray; */
+    height: 600px;
+    padding: 0px 100px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: hero-animation;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+
+@keyframes hero-animation {
+    0% {
+        transform: translate(-800px, 0);
+    }
+
+    100% {
+        transform: translate(0px, 0);
+    }
+}
+
+.hero-text h1 {
+    font-size: 4em;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 3px 3px 5px rgb(26, 14, 14);
+}
+
+.hero-text p {
+    font-size: 1em;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 3px 3px 5px rgb(26, 14, 14);
+}
+
+.hero-text button {
+    padding: 20px 40px;
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+
+}
+
+.center {
+    padding: 100px 100px;
+    background-color: lightgray;
+}
+
+.row1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.col1 {
+    padding: 50px;
+    background-color: white;
+    box-shadow: 1px 1px 5px gray;
+     animation-name: scroll-animation;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes scroll-animation {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+        transition: all 1s ease;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
