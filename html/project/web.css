@@ -1,0 +1,946 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   MAIN / HERO
+===================================================== */
+
+.main {
+    height: 700px;
+    width: 100%;
+
+    background:
+        linear-gradient(
+            rgba(32, 16, 3, 0.7),
+            rgba(32, 16, 3, 0.7)
+        ),
+        url(images/pexels-samerdaboul-1005427.jpg);
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav {
+    z-index: 1000;
+
+    width: 100%;
+    height: 80px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 10px 50px;
+
+    background-color: rgba(32, 16, 3, 0.5);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /*
+        Navbar background changes
+        according to whole page scroll
+    */
+    animation: darkBackground linear;
+    animation-timeline: scroll(root);
+}
+
+
+/* Navbar scroll animation */
+
+@keyframes darkBackground {
+
+    0% {
+        background-color: rgba(32, 16, 3, 0.5);
+    }
+
+    100% {
+        background-color: rgba(32, 16, 3, 1);
+    }
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logotext {
+    color: orange;
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+
+
+/* =====================================================
+   NAV ITEMS
+===================================================== */
+
+.nav-grop {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.nav-item {
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+
+.nav-item:hover,
+.active-link {
+    color: orange;
+}
+
+
+/* =====================================================
+   NAV BUTTON
+===================================================== */
+
+.nav-item button {
+    background-color: orange;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 5px;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.nav-item button:hover {
+    background-color: darkorange;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-div {
+    height: 700px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 50px;
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero-text {
+
+    height: 600px;
+
+    padding: 0 50px;
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+
+    /* Page load animation */
+
+    animation-name: hero-animation;
+
+    animation-duration: 1s;
+
+    animation-delay: 0.3s;
+
+    animation-timing-function: ease-in-out;
+
+    animation-fill-mode: both;
+}
+
+
+@keyframes hero-animation {
+
+    0% {
+
+        opacity: 0;
+
+        transform: translateX(-800px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   HERO HEADING
+===================================================== */
+
+.hero-text h1 {
+
+    font-size: 4em;
+
+    font-weight: bolder;
+
+    color: white;
+
+    text-shadow: 3px 3px 5px rgb(26, 14, 14);
+}
+
+
+/* =====================================================
+   HERO PARAGRAPH
+===================================================== */
+
+.hero-text p {
+
+    font-size: 1em;
+
+    font-weight: bolder;
+
+    line-height: 1.6;
+
+    color: white;
+
+    text-shadow: 3px 3px 5px rgb(26, 14, 14);
+}
+
+
+/* =====================================================
+   HERO BUTTON
+===================================================== */
+
+.hero-text button {
+
+    padding: 20px 40px;
+
+    border: none;
+
+    background-color: orange;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+.hero-text button:hover {
+
+    background-color: darkorange;
+
+}
+
+
+/* =====================================================
+   COFFEE IMAGE
+===================================================== */
+
+.hero-img img {
+
+    z-index: 1;
+
+    height: 400px;
+
+    width: 400px;
+
+    object-fit: contain;
+
+    animation-name: coffeemgmove;
+
+    animation-duration: 10s;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes coffeemgmove {
+
+    0% {
+
+        transform: rotate(0deg);
+
+    }
+
+    100% {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   CENTER
+===================================================== */
+
+.center {
+
+    padding: 100px;
+
+    background-color: lightgray;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   ROW1
+   ROW ITSELF ANIMATION
+===================================================== */
+
+.row1 {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+
+    /*
+        Initial state
+    */
+
+
+
+    /*
+        ROW scroll animation
+    */
+
+    animation-name: row-animation;
+
+    animation-duration: 8s;
+
+    animation-timing-function: ease-out;
+
+    animation-fill-mode: both;
+
+
+    /*
+        Connect animation with viewport scroll
+    */
+
+    animation-timeline: scroll(root);
+
+    /
+}
+
+
+/* =====================================================
+   ROW1 KEYFRAMES
+===================================================== */
+
+@keyframes row-animation {
+
+    0% {
+
+        /* opacity: 0; */
+
+        transform: translateY(100px);
+
+    }
+
+    100% {
+
+        /* opacity: 1; */
+
+        transform: translateY(0px);
+
+    }
+
+}
+
+
+/* =====================================================
+   COL1
+   INDIVIDUAL CARD ANIMATION
+===================================================== */
+
+.col1 {
+
+    padding: 50px 30px;
+
+    background-color: white;
+
+    box-shadow: 1px 1px 5px gray;
+
+
+    /*
+        Initial state
+    */
+
+    opacity: 0;
+
+
+    /*
+        Individual card animation
+    */
+
+    animation-name: col-animation;
+
+    animation-duration: 1s;
+
+    animation-timing-function: ease-out;
+
+    animation-fill-mode: both;
+
+
+    /*
+        Connect animation with viewport
+    */
+
+    animation-timeline: view();
+
+    animation-range: entry 10% cover 40%;
+}
+
+
+/* =====================================================
+   COL1 KEYFRAMES
+===================================================== */
+
+@keyframes col-animation {
+
+    0% {
+
+        opacity: 0;
+
+        transform: translateY(80px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   INDIVIDUAL CARD POSITION
+===================================================== */
+
+/*
+    Card 1
+*/
+
+#col1-1 {
+
+    animation-range: entry 0% cover 30%;
+
+}
+
+
+/*
+    Card 2
+*/
+
+#col1-2 {
+
+    animation-range: entry 10% cover 40%;
+
+}
+
+
+/*
+    Card 3
+*/
+
+#col1-3 {
+
+    animation-range: entry 20% cover 50%;
+
+}
+
+
+/*
+    Card 4
+*/
+
+#col1-4 {
+
+    animation-range: entry 30% cover 60%;
+
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.col1 i {
+
+    font-size: 3em;
+
+    color: orange;
+}
+
+
+/* =====================================================
+   TEXT COLUMN
+===================================================== */
+
+.text-col {
+
+    padding: 10px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.text-col h3 {
+
+    font-weight: bold;
+}
+
+
+.text-col p {
+
+    color: gray;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.col1:hover {
+
+    background-color: orange;
+
+    color: white;
+
+    transform: translateY(-10px);
+
+    transition: 0.3s ease;
+}
+
+
+.col1:hover .text-col p {
+
+    color: white;
+}
+
+
+.col1:hover .icon-div i {
+
+    color: white;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+
+    padding: 100px 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   ABOUT IMAGE GRID
+===================================================== */
+
+.about-row-1 {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =====================================================
+   ABOUT IMAGES
+===================================================== */
+
+.img-1 {
+
+    height: 250px;
+
+    width: 250px;
+
+    object-fit: cover;
+
+
+    /*
+        Scroll animation
+    */
+
+    opacity: 0;
+
+    animation: about-image-animation linear both;
+
+    animation-timeline: view();
+
+    animation-range: entry 10% cover 40%;
+}
+
+
+.img-2 {
+
+    height: 150px;
+
+    width: 150px;
+
+    object-fit: cover;
+
+
+    /*
+        Scroll animation
+    */
+
+    opacity: 0;
+
+    animation: about-image-animation linear both;
+
+    animation-timeline: view();
+
+    animation-range: entry 10% cover 40%;
+}
+
+
+/* =====================================================
+   ABOUT IMAGE ANIMATION
+===================================================== */
+
+@keyframes about-image-animation {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(80px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   ABOUT IMAGE POSITIONS
+===================================================== */
+
+#img1 {
+
+    justify-self: flex-end;
+
+}
+
+
+#img2 {
+
+    align-self: flex-end;
+
+}
+
+
+#img3 {
+
+    justify-self: flex-end;
+
+}
+
+
+/* =====================================================
+   ABOUT TEXT
+===================================================== */
+
+.about-text {
+
+    opacity: 0;
+
+    animation: about-text-animation linear both;
+
+    animation-timeline: view();
+
+    animation-range: entry 10% cover 40%;
+}
+
+
+@keyframes about-text-animation {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(100px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   ABOUT HEADING
+===================================================== */
+
+.about-text h2 {
+
+    color: orange;
+
+    font-size: 2.5em;
+
+    margin-bottom: 20px;
+}
+
+
+.about-text h3 {
+
+    font-size: 2em;
+
+    margin-bottom: 20px;
+}
+
+
+.about-text p {
+
+    color: gray;
+
+    line-height: 1.7;
+
+    font-size: 1.1em;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .row1 {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .about {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-text h1 {
+
+        font-size: 3em;
+
+    }
+
+
+    .hero-img img {
+
+        height: 300px;
+
+        width: 300px;
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    nav {
+
+        padding: 10px 20px;
+
+    }
+
+
+    .nav-grop {
+
+        gap: 10px;
+
+    }
+
+
+    .hero-div {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+    }
+
+
+    .hero-text {
+
+        height: auto;
+
+        padding: 100px 20px 20px;
+
+    }
+
+
+    .hero-text h1 {
+
+        font-size: 2.5em;
+
+    }
+
+
+    .hero-img img {
+
+        height: 250px;
+
+        width: 250px;
+
+    }
+
+
+    .center {
+
+        padding: 50px 20px;
+
+    }
+
+
+    .row1 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .about-row-1 {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .img-1 {
+
+        width: 100%;
+
+        height: 200px;
+
+    }
+
+
+    .img-2 {
+
+        width: 100%;
+
+        height: 130px;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .nav-grop .nav-item:not(:last-child) {
+
+        display: none;
+
+    }
+
+
+    .logotext {
+
+        font-size: 1.8em;
+
+    }
+
+
+    .hero-text h1 {
+
+        font-size: 2em;
+
+    }
+
+
+    .hero-text p {
+
+        font-size: 0.9em;
+
+    }
+
+
+    .hero-img img {
+
+        width: 200px;
+
+        height: 200px;
+
+    }
+
+}

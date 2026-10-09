@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+        
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .dark{
+            background-color: black;
+            color: white;
+        }
+        .light{
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <script>
+       let theme='light'
+        function chnageTheme(){
+             
+            let mainDiv = document.getElementById('mainDiv');
+           
+            let ad = theme=="light" ? 'dark':'light';
+            let rm = theme =="light" ? 'light':'dark';
+            theme = theme=='light' ?'dark' :'light';
+           
+            
+            mainDiv.classList.remove(rm);
+           
+            
+            mainDiv.classList.add(ad);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="chnageTheme()">Chnage Theme</button>
+<div class="main light" id="mainDiv">
+    <h1>Welcome to app</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam id recusandae labore natus libero. Facilis, cumque ab. Architecto tenetur deleniti, voluptas, temporibus porro eum, ab quis aliquam saepe illo perspiciatis.</p>
+</div>
+</body>
+</html>

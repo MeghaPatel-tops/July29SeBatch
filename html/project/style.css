@@ -2,9 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace sans-serif;
 }
-
 .main {
 
     height: 700px;
@@ -159,32 +158,233 @@ nav {
 }
 
 .row1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Hide only when JS is running, so content never stays invisible if JS fails */
+.js .row1 > * {
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Stagger the cards */
+.js .row1 > *:nth-child(2) { transition-delay: 0.1s; }
+.js .row1 > *:nth-child(3) { transition-delay: 0.2s; }
+.js .row1 > *:nth-child(4) { transition-delay: 0.3s; }
+
+/* Final state */
+.js .row1.show > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .row1 > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* .row1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    transform: translateY(0);
+   
+    animation: scrollUp linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 700px;
 }
 
+
+@keyframes scrollUp {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} */
+
+
 .col1 {
-    padding: 50px;
+    
+    padding: 50px 30px;
     background-color: white;
     box-shadow: 1px 1px 5px gray;
-     animation-name: scroll-animation;
-    animation-duration: 1s;
-    animation-delay: 1s;
-    animation-timing-function: ease-in-out;
+    animation: scroll-animation linear both;
+    animation-range: entry 10% cover 35%;
+    /* animation-timeline: scroll(root); */
+    animation-duration: 2s;
+   
 
 }
 
 @keyframes scroll-animation {
     0% {
         opacity: 0;
-        transform: translateY(80px);
-        transition: all 1s ease;
+        transform: translateY(200px);
+      
     }
 
     100% {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+#col1-1{
+    animation-delay: 0.5s;
+    
+}
+#col1-2{
+    animation-delay: 1s;
+    
+     
+}
+#col1-3{
+    animation-delay: 1.5s;
+    
+    
+}
+#col1-4{
+    animation-delay: 2s;
+    
+    
+}
+.col1 i{
+   font-size: 3em;
+    color: orange;
+}
+.text-col{
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.text-col h3{
+   
+    font-weight: bold;
+}
+.text-col p{
+    color: gray;
+}
+.col1:hover{
+    background-color: orange;
+    color: white;
+}
+.col1:hover .text-col p{
+    color: white;
+}
+.col1:hover .icon-div i{
+    color: white;
+}
+
+.about{
+    padding: 100px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+.about-row-1{
+    
+   
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:20px;
+}
+.about-row-1 img{
+     animation: imageZoom linear both;
+    animation-range: entry 10% cover 35%;
+    animation-duration: 2s;
+}
+
+@keyframes imageZoom {
+    0%{
+        opacity: 0;
+       
+    }
+    50%{
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    100%{
+         transform: scale(1);
+    }
+}
+.img-1{
+    height: 100%;
+    width: 100%;
+    
+}
+.img-2{
+     height: 75%;
+     width: 75%;
+     
+}
+#img1{
+    justify-self: flex-end;
+}
+#img2{
+    align-self: flex-end;
+}
+#img3{
+    justify-self: flex-end;
+}
+.fs-2{
+    color: orange;font-family: cursive;
+}  
+.about-text{
+    padding: 10px 20px;
+} 
+
+.head-div{
+  
+    position: relative;
+    margin-bottom: 30px;
+   
+}
+.head-div span{
+     display: block;
+     font-size: 4em;
+     
+     
+}
+.upHead{
+    color: orange;
+    font-family:  cursive;
+}
+.downdHead{
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+}
+.about-text p{
+    font-size: 1.5em;
+    color: rgb(72, 70, 70);
+    margin-bottom: 20px;
+     letter-spacing: 1px;
+    word-spacing: 2px;
+    line-height: 1.2;
+}
+footer{
+    background-color: rgba(32, 16, 3);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+     color: white;
+     font-size: 2em;
 }
 
