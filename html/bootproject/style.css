@@ -1,0 +1,17 @@
+.hero{
+    height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/banner1.jpg);
+   
+}
+.border-bottom-end-radius-0 {
+    border-bottom-right-radius: 0 !important;
+}
+.textDiv{
+    
+    margin-top: 25% !important;
+}
+.about{
+    height: 500px;
+   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/banner1.jpg);
+   /* background-size: 100% 100%; */
+}
